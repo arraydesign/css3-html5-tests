@@ -7,110 +7,115 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="author" href="humans.txt">
         <style>
-            @import url(//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+@import url(//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
 
-            body {
-                transform: translate3d(0,0,0);
-                -webkit-transform: translate3d(0,0,0);
-                font-family: 'Roboto Condensed';
-            }
+body {
+    font-family: 'Roboto Condensed';
+    margin: 0;
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+}
 
-            form {
-                background: #e9e9e9;
+form {
+    background: #e9e9e9;
 
-            }
+}
 
-            fieldset {
-                border: 1px solid #ddd;
-                padding: 100px
-            }
+fieldset {
+    border: 1px solid #DDDDDD;
+    margin: 0;
+    padding: 100px;
+}
 
-            label {
-                width: 100px;
-                height: 30px;
-                display: block;
-                
-                position: relative;
-                overflow: hidden;
-                cursor: pointer;
-                border-radius: 5px;
-                border: 1px solid #999;
-                border-bottom-color: rgba(255,255,255,0.4);
-                border-right-color: #ccc;
-            }
+fieldset > div {
+    width: 100px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #999;
+    border-bottom-color: rgba(255,255,255,0.4);
+    border-right-color: #ccc;
+}
 
-            input {
-                position: absolute;
-                left: 0;
-                top: 0;
-                height: 50px;
-                width: 100px;
-                padding: 0;
-                z-index: 5000;
-                margin: 0;
-                opacity: 0;
-                cursor: pointer;
-            }
+input {
+    border: medium none !important;
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    line-height: normal;
+    margin: 0 !important;
+    opacity: 0;
+    outline: 0 none !important;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 5000;
+}
 
-            .checked,
-            .unchecked {
-                display: block;
-                /* float: left; */
-                text-align: center;
-                text-shadow: 0px 1px 1px white;
-                background: #eee;
-                color: #807B7B;
-                line-height: 30px;
-                padding: 0;
-                position: absolute;
-                top: 0;
-                text-transform: uppercase;
-                width: 75%;
-                right: 0;
-            }
+fieldset > div:before {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1) inset;
+    content: "Off";
+}
 
-            .checked {
-                padding: 0;
-                z-index: 500;
-                background: #0B6DFF;
-                width: 100px;
-                border-radius: 5px;
-                box-shadow: inset 0px 2px 4px 2px rgba(0,0,0,0.1);
-            }
+fieldset > div:before,
+label {
+    background: #EEEEEE;
+    color: #DDDDDD;
+    height: 100%;
+    left: 0;
+    line-height: 30px;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 1px 1px #FFFFFF;
+    text-transform: uppercase;
+    text-indent: 25%;
+    top: 0;
+    width: 100%;
+    z-index: 400;
+}
 
-            .checked b {
-                width: 70px;
-                display: block;
-                background: #FFF;
+label {
+    background: blue;
+    border-radius: 5px 5px 5px 5px;
+    color: #999999;
+    content: "On";
+    font-weight: 400;
+    left: -75%;
+    z-index: 500;
+	transition: all 200ms ease-in-out;
+}
 
-                border-radius: 2px;
-                float: right;
-                box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-                font-weight: 400;
-            }
-            .unchecked {
-                color: #ddd;
-                right: 0;
-                box-shadow: inset 0px 2px 2px 0px rgba(0,0,0,0.1);
-            }
+label:before {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    content: "On";
+    height: 100%;
+    left: 25%;
+    position: absolute;
+    text-indent: 0;
+    top: 0;
+    width: 75%;
+}
 
-            input[type="checkbox"]:checked ~ .checked   {transition: all .075s ease-in-out; transform: translate(-75px,0); -webkit-transform: translate(-75px,0); right}
-            input[type="checkbox"] ~ .checked           {transition: all .075s ease-in-out; transform: translate(0, 0);  -webkit-transform: translate(0, 0);    }
-
+input[type="checkbox"]:checked ~ label {
+	left: 0;
+}
 
         </style>
     </head>
     <body>
-        
-        <form action="" method="get" accept-charset="utf-8">
-            <fieldset>
-            	<label>
-                    <input type="checkbox" value="" class="checkbox" checked="checked" /> 
-                    <span class="checked"><b>on</b></span> 
-                    <span class="unchecked">off</span> 
-                </label>
-            </fieldset>
-        		
-        </form>
+		<form action="" method="get" accept-charset="utf-8">
+			<fieldset>
+				<div>
+					<input type="checkbox" value="" class="checkbox" checked="checked" /> 
+					<label>On</label>
+				</div>
+			</fieldset>	
+		</form>
 	</body>
 </html>
